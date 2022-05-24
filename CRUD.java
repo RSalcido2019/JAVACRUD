@@ -85,6 +85,27 @@ import java.util.*;
                     }
                     System.out.println("------------------------------------------");
                 break;
+                case 4:
+                    found = false;
+                    System.out.println("Enter the employee number to DELETE : ");
+                    empno = s.nextInt();
+                    System.out.println("------------------------------------------");
+                    i = c.iterator();
+                    while(i.hasNext()){
+                        Employee e = i.next();
+                        if(e.getEmpno() == empno){
+                            i.remove();
+                            found = true;
+                        }
+
+                    }
+                    if(!found){
+                        System.out.println("Record Not Found");
+                    }else{
+                        System.out.println("Record is DELETED successfully !!");
+                    }
+                    System.out.println("------------------------------------------");
+                    break;
             }
         }while(choices!=0);
     }
