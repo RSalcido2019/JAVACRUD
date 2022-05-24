@@ -119,7 +119,7 @@ import java.util.*;
                             ename = sN.nextLine();
 
                             System.out.println("Enter the MEW Salary : ");
-                            salary = s.nextLine();
+                            salary = s.nextInt();
                             li.set( new Employee(empno, ename,salary));
                             found = true;
                         }
