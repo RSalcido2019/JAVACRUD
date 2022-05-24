@@ -33,7 +33,7 @@ import java.util.*;
  class CRUD{
     public static void main(String[] args){
 
-        Collection<Employee> c = new ArrayList<Employee>();
+        List<Employee> c = new ArrayList<Employee>();
         Scanner s = new Scanner(System.in);
         Scanner sN = new Scanner(System.in);
         int choices;
@@ -103,6 +103,32 @@ import java.util.*;
                         System.out.println("Record Not Found");
                     }else{
                         System.out.println("Record is DELETED successfully !!");
+                    }
+                    System.out.println("------------------------------------------");
+                break;
+                case 5:
+                    found = false;
+                    System.out.println("Enter the employee number to UPDATE : ");
+                    empno = s.nextInt();
+                    System.out.println("------------------------------------------");
+                    ListIterator<Employee>li = c.listIterator();
+                    while(li.hasNext()){
+                        Employee e = li.next();
+                        if(e.getEmpno() == empno){
+                            System.out.println("Enter the MEW name : ");
+                            ename = sN.nextLine();
+
+                            System.out.println("Enter the MEW Salary : ");
+                            salary = s.nextLine();
+                            li.set( new Employee(empno, ename,salary));
+                            found = true;
+                        }
+
+                    }
+                    if(!found){
+                        System.out.println("Record Not Found");
+                    }else{
+                        System.out.println("Record is UPDATED successfully !!");
                     }
                     System.out.println("------------------------------------------");
                     break;
