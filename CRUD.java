@@ -33,7 +33,9 @@ import java.util.*;
  class CRUD{
     public static void main(String[] args){
 
+        Collection<Employee> c = new ArrayList<Employee>();
         Scanner s = new Scanner(System.in);
+        Scanner sN = new Scanner(System.in);
         int choices;
         do{
             System.out.println("1.INSERT");
@@ -43,6 +45,47 @@ import java.util.*;
             System.out.println("5.UPDATE");
             System.out.println("Enter Your Choice : ");
             choices = s.nextInt();
+
+            switch(choices){
+                case 1:
+                    System.out.print("Enter Empno : ");
+                    int eno = s.nextInt();
+                    System.out.print("Enter EmpName : ");
+                    String ename = sN.nextLine();
+                    System.out.print("Enter Salary : ");
+                    int salary = s.nextInt();
+
+                    c.add(new Employee(eno,ename,salary));
+                break;
+                case 2:
+                    System.out.println("------------------------------------------");
+                    Iterator<Employee> i = c.iterator();
+                    while(i.hasNext()){
+                        Employee e = i.next();
+                        System.out.println(e);
+                    }
+                    System.out.println("------------------------------------------");
+                break;
+                case 3:
+                    boolean found = false;
+                    System.out.println("Enter the employee number : ");
+                    int empno = s.nextInt();
+                    System.out.println("------------------------------------------");
+                    i = c.iterator();
+                    while(i.hasNext()){
+                        Employee e = i.next();
+                        if(e.getEmpno() == empno){
+                            System.out.println(e);
+                            found = true;
+                        }
+
+                    }
+                    if(!found){
+                        System.out.println("Record Not Found");
+                    }
+                    System.out.println("------------------------------------------");
+                break;
+            }
         }while(choices!=0);
     }
  }
