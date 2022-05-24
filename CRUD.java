@@ -110,7 +110,7 @@ import java.util.*;
                     found = false;
                     System.out.println("Enter the employee number to UPDATE : ");
                     empno = s.nextInt();
-                    System.out.println("------------------------------------------");
+
                     ListIterator<Employee>li = c.listIterator();
                     while(li.hasNext()){
                         Employee e = li.next();
@@ -130,7 +130,6 @@ import java.util.*;
                     }else{
                         System.out.println("Record is UPDATED successfully !!");
                     }
-                    System.out.println("------------------------------------------");
                     break;
             }
         }while(choices!=0);
